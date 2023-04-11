@@ -4,15 +4,15 @@ layout: home
 
 hero:
   name: "xwb.blob"
-  text: "个人的学习记录"
+  text: "学习文档"
   tagline: My great project tagline
   actions:
     - theme: brand
       text: 简介
-      link: /guide
+      link: /guide/introduction
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 分享
+      link: /share/index
 
 features:
   - title: Feature A
