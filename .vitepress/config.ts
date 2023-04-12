@@ -13,7 +13,6 @@ const sidebarGuide = (): DefaultTheme.SidebarItem[] => [
   },
   { text: "技术选型", link: "/guide/technology" },
   { text: "统一规范", link: "/guide/standard" },
-  { text: "统一规范", link: "/guide/standard" },
 ];
 const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   {
