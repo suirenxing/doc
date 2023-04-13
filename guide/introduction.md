@@ -32,4 +32,4 @@
 ## how（怎么做）
 
 1. [技术选型](../technology/index)
-2.
+2. [统一规范](./micro-app.md)

@@ -14,7 +14,7 @@ pnpm install prettier -D
 
 ::: code-group
 
-```javascript [prettier.config.js]
+```js [prettier.config.js]
 module.exports = {
   printWidth: 100, //最大单行长度
   tabWidth: 2, //每个缩进的空格数
@@ -29,7 +29,6 @@ module.exports = {
   insertPragma: false, //是否在文件头部插入一个 @format标记表示文件已经被格式化了
   htmlWhitespaceSensitivity: "strict", //HTML 空白敏感性 css strict ignore
   endOfLine: "auto", //换行符使用什么
-  tslintIntegration: false, //不让ts使用prettier校验
 };
 ```
 
@@ -230,7 +229,7 @@ Git Hook 工具，可以设置在 git 各个阶段（pre-commit、commit-msg、p
 1. 安装
 
 ```sh
-pnpm install husky lint-staged -D
+pnpm install husky -D
 ```
 
 2. 配置 husky
@@ -343,7 +342,6 @@ pnpm install commitizen cz-git -D
 ```
 
 ```js [commitlint.config.js]
-// @see: https://cz-git.qbenben.com/zh/guide
 /** @type {import('cz-git').UserConfig} */
 
 module.exports = {
@@ -404,90 +402,35 @@ module.exports = {
       confirmCommit: "是否提交或修改commit ?",
     },
     types: [
-      // {
-      // 	value: "feat",
-      // 	name: "feat:     🚀  A new feature",
-      // 	emoji: "🚀"
-      // },
-      // {
-      // 	value: "fix",
-      // 	name: "fix:      🧩  A bug fix",
-      // 	emoji: "🧩"
-      // },
-      // {
-      // 	value: "docs",
-      // 	name: "docs:     📚  Documentation only changes",
-      // 	emoji: "📚"
-      // },
-      // {
-      // 	value: "style",
-      // 	name: "style:    🎨  Changes that do not affect the meaning of the code",
-      // 	emoji: "🎨"
-      // },
-      // {
-      // 	value: "refactor",
-      // 	name: "refactor: ♻️   A code change that neither fixes a bug nor adds a feature",
-      // 	emoji: "♻️"
-      // },
-      // {
-      // 	value: "perf",
-      // 	name: "perf:     ⚡️  A code change that improves performance",
-      // 	emoji: "⚡️"
-      // },
-      // {
-      // 	value: "test",
-      // 	name: "test:     ✅  Adding missing tests or correcting existing tests",
-      // 	emoji: "✅"
-      // },
-      // {
-      // 	value: "build",
-      // 	name: "build:    📦️   Changes that affect the build system or external dependencies",
-      // 	emoji: "📦️"
-      // },
-      // {
-      // 	value: "ci",
-      // 	name: "ci:       🎡  Changes to our CI configuration files and scripts",
-      // 	emoji: "🎡"
-      // },
-      // {
-      // 	value: "chore",
-      // 	name: "chore:    🔨  Other changes that don't modify src or test files",
-      // 	emoji: "🔨"
-      // },
-      // {
-      // 	value: "revert",
-      // 	name: "revert:   ⏪️  Reverts a previous commit",
-      // 	emoji: "⏪️"
-      // }
       // 中文版
-      { value: "特性", name: "特性:   🚀  新增功能", emoji: "🚀" },
-      { value: "修复", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
-      { value: "文档", name: "文档:   📚  文档变更", emoji: "📚" },
+      { value: "feat", name: "特性:   🚀  新增功能", emoji: "🚀" },
+      { value: "fix", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
+      { value: "docs", name: "文档:   📚  文档变更", emoji: "📚" },
       {
-        value: "格式",
+        value: "style",
         name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）",
         emoji: "🎨",
       },
       {
-        value: "重构",
+        value: "refactor",
         name: "重构:   ♻️  代码重构（不包括 bug 修复、功能新增）",
         emoji: "♻️",
       },
-      { value: "性能", name: "性能:   ⚡️  性能优化", emoji: "⚡️" },
+      { value: "perf", name: "性能:   ⚡️  性能优化", emoji: "⚡️" },
       {
-        value: "测试",
+        value: "test",
         name: "测试:   ✅  添加疏漏测试或已有测试改动",
         emoji: "✅",
       },
       {
-        value: "构建",
+        value: "build",
         name: "构建:   📦️  构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）",
         emoji: "📦️",
       },
-      { value: "集成", name: "集成:   🎡  修改 CI 配置、脚本", emoji: "🎡" },
-      { value: "回退", name: "回退:   ⏪️  回滚 commit", emoji: "⏪️" },
+      { value: "ci", name: "集成:   🎡  修改 CI 配置、脚本", emoji: "🎡" },
+      { value: "chore", name: "回退:   ⏪️  回滚 commit", emoji: "⏪️" },
       {
-        value: "其他",
+        value: "revert",
         name: "其他:   🔨  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）",
         emoji: "🔨",
       },
@@ -513,7 +456,7 @@ module.exports = {
       };
     }),
     // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
-    // allowCustomScopes: true,
+    allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",
     customScopesAlias: "custom",
