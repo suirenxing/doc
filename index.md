@@ -8,17 +8,17 @@ hero:
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: 简介
-      link: /guide/introduction
+      text: 工程化
+      link: /engine/introduction
     - theme: alt
       text: 分享
       link: /share/index
 
 features:
-  - title: Feature A
+  - title: JavaScript
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Css
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: Vue/React
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---

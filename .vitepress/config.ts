@@ -1,19 +1,19 @@
 import { defineConfig } from "vitepress";
 import type { DefaultTheme } from "vitepress/types/default-theme";
-const sidebarGuide = (): DefaultTheme.SidebarItem[] => [
+const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
   {
     text: "前端工程化",
     items: [
-      { text: "简介", link: "/guide/introduction" },
-      { text: "模块化", link: "/guide/module" },
-      { text: "组件化", link: "/guide/component" },
-      { text: "自动化", link: "/guide/auto" },
+      { text: "简介", link: "/engine/introduction" },
+      { text: "模块化", link: "/engine/modernize/module" },
+      { text: "组件化", link: "/engine/modernize/component" },
+      { text: "自动化", link: "/engine/modernize/auto" },
     ],
     collapsed: false,
   },
-  { text: "技术选型", link: "/guide/technology" },
-  { text: "统一规范", link: "/guide/standard" },
-  { text: "微前端", link: "./framework/micro-app.md" },
+  { text: "技术选型", link: "/engine/technology" },
+  { text: "统一规范", link: "/engine/standard" },
+  { text: "微前端", link: "/engine/framework/micro-app.md" },
 ];
 const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   {
@@ -32,12 +32,12 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "工程化", link: "/guide/introduction" },
+      { text: "工程化", link: "/engine/introduction" },
       { text: "技术分享", link: "/technology/index" },
     ],
 
     sidebar: {
-      "/guide/": sidebarGuide(),
+      "/engine/": sidebarEngine(),
       "/reference/": sidebarShare(),
     },
 
