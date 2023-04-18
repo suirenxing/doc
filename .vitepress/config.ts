@@ -2,18 +2,25 @@ import { defineConfig } from "vitepress";
 import type { DefaultTheme } from "vitepress/types/default-theme";
 const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
   {
-    text: "前端工程化",
+    text: "Introduction",
     items: [
       { text: "简介", link: "/engine/introduction" },
       { text: "模块化", link: "/engine/modernize/module" },
       { text: "组件化", link: "/engine/modernize/component" },
+      { text: "规范化", link: "/engine/modernize/norm" },
       { text: "自动化", link: "/engine/modernize/auto" },
     ],
     collapsed: false,
   },
-  { text: "技术选型", link: "/engine/technology" },
-  { text: "统一规范", link: "/engine/standard" },
-  { text: "微前端", link: "/engine/framework/micro-app.md" },
+  {
+    text: "Features",
+    items: [
+      { text: "技术选型", link: "/engine/technology" },
+      { text: "统一规范", link: "/engine/standard" },
+      { text: "微前端", link: "/engine/framework/micro-app.md" },
+    ],
+    collapsed: false,
+  },
 ];
 const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   {

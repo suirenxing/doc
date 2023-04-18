@@ -220,7 +220,7 @@ public/*
 3. 添加脚本命令
    `"lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix"`
 
-## 提交规范
+## 提交规范 commitlint
 
 ### [husky](https://github.com/typicode/husky)
 
