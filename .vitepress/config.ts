@@ -17,18 +17,30 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
     items: [
       { text: "技术选型", link: "/engine/technology" },
       { text: "统一规范", link: "/engine/standard" },
-      { text: "微前端", link: "/engine/framework/micro-app.md" },
+      { text: "微前端", link: "/engine/framework/micro-app" },
     ],
     collapsed: false,
   },
 ];
 const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   {
-    text: "技术分享",
+    text: "浏览器",
+    items: [{ text: "内存", link: "/share/browser/memory" }],
+    collapsed: false,
+  },
+  {
+    text: "http",
+    items: [{ text: "简介", link: "/share/browser/memory" }],
+    collapsed: false,
+  },
+  {
+    text: "运维",
     items: [
-      { text: "npm", link: "/technology/index" },
-      { text: "webpack", link: "/monorepo/index" },
+      { text: "nginx", link: "/share/devops/nginx" },
+      { text: "docker", link: "/share/devops/docker" },
+      { text: "linux", link: "/share/devops/linux" },
     ],
+    collapsed: false,
   },
 ];
 
@@ -40,12 +52,12 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "工程化", link: "/engine/introduction" },
-      { text: "技术分享", link: "/technology/index" },
+      { text: "分享", link: "/share/browser/memory" },
     ],
 
     sidebar: {
       "/engine/": sidebarEngine(),
-      "/reference/": sidebarShare(),
+      "/share/": sidebarShare(),
     },
 
     socialLinks: [
