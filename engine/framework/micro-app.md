@@ -18,3 +18,93 @@
 - 老技术、老代码不敢动，新技术、新架构不敢用。
 - 敏捷开发中，导致的技术负债，维护难。
 - 依赖类库升级成本高。
+
+## wujie
+
+1. ant-design-vue 弹窗位置
+   [参考](https://github.com/Tencent/wujie/issues/499)
+
+2. 子应用刷新页面（location 是子应用）
+   - 使用 window.parent.reload
+   - 使用 eventbus 通知主应用
+
+## 数据平台改造
+
+1. 主应用
+
+2. 子应用
+
+   1. 添加 window 全局变量
+
+   ```ts
+   interface Window {
+     // 是否存在无界
+     __POWERED_BY_WUJIE__?: boolean;
+     // 子应用mount函数
+     __WUJIE_MOUNT: () => void;
+     // 子应用unmount函数
+     __WUJIE_UNMOUNT: () => void;
+     // 子应用无界实例
+     __WUJIE: { mount: () => void };
+     $wujie: {
+       bus: EventBus;
+       shadowRoot?: ShadowRoot;
+       props?: {
+         token?: string;
+         tenant: {
+           tenantId: string | number;
+           tenantName: string;
+         };
+         userInfo: Record;
+         [key: string]: any;
+       };
+       location?: Object;
+     };
+   }
+   ```
+
+   2. 修改 main.ts，引入 wujie
+
+   ```ts
+   async function bootstrap() { // [!code --]
+   async function bootstrap(app: VueApp) { // [!code ++]
+      const app = createApp(App); // [!code --]
+      ...
+   }
+   if (window.__POWERED_BY_WUJIE__) {
+   let instance: any;
+   window.__WUJIE_MOUNT = () => {
+      instance = createApp(App);
+      bootstrap(instance);
+   };
+   window.__WUJIE_UNMOUNT = () => {
+      instance.unmount();
+   };
+   window.__WUJIE.mount();
+   } else {
+      bootstrap(createApp(App));
+   }
+   ```
+
+   3. 修改 permissionGuard
+
+   ```ts
+   export function createPermissionGuard(router: Router) {
+      ...
+      router.beforeEach(async (to, from, next) => {
+         ...
+         if (window.__POWERED_BY_WUJIE__) {
+            const props = window.$wujie?.props;
+            // 根据个人项目改造
+            const token = props?.token;
+            const tenant = props?.tenant as Tenant;
+            const userInfo = props?.userInfo;
+
+            await userStore.setToken(token);
+            await userStore.setUserInfo(userInfo);
+            await userStore.setTenant(tenant);
+         }
+         ...
+      }
+   }
+   ```
