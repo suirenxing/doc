@@ -48,6 +48,7 @@ const sidebarShare = (): DefaultTheme.SidebarItem[] => [
 export default defineConfig({
   title: "学习文档",
   description: "学习文档",
+  outDir: "./dist",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
