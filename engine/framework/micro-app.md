@@ -19,14 +19,7 @@
 - 敏捷开发中，导致的技术负债，维护难。
 - 依赖类库升级成本高。
 
-## wujie
-
-1. ant-design-vue 弹窗位置
-   [参考](https://github.com/Tencent/wujie/issues/499)
-
-2. 子应用刷新页面（location 是子应用）
-   - 使用 window.parent.reload
-   - 使用 eventbus 通知主应用
+# wujie
 
 ## 数据平台改造
 
@@ -34,7 +27,7 @@
 
 2. 子应用
 
-   1. 添加 window 全局变量
+   1. 在 global.d.ts 中添加 window 全局变量
 
    ```ts
    interface Window {
@@ -63,7 +56,7 @@
    }
    ```
 
-   2. 修改 main.ts，引入 wujie
+   2. 修改 main.ts，判读是否引入 wujie
 
    ```ts
    async function bootstrap() { // [!code --]
@@ -86,25 +79,66 @@
    }
    ```
 
-   3. 修改 permissionGuard
+- 全局参数传递
 
-   ```ts
-   export function createPermissionGuard(router: Router) {
-      ...
-      router.beforeEach(async (to, from, next) => {
-         ...
-         if (window.__POWERED_BY_WUJIE__) {
-            const props = window.$wujie?.props;
-            // 根据个人项目改造
-            const token = props?.token;
-            const tenant = props?.tenant as Tenant;
-            const userInfo = props?.userInfo;
+  1. 在启动子项目时使用 startApp 中的 props 参数
 
-            await userStore.setToken(token);
-            await userStore.setUserInfo(userInfo);
-            await userStore.setTenant(tenant);
-         }
-         ...
-      }
-   }
-   ```
+  ```ts
+  startApp({
+   ...
+   props: {token: 'token'}
+  })
+  ```
+
+  2. 在子项目 main.ts 或者 permissionGuard 中接收
+
+  ```ts
+  export function createPermissionGuard(router: Router) {
+     ...
+     router.beforeEach(async (to, from, next) => {
+        ...
+        if (window.__POWERED_BY_WUJIE__) {
+           const props = window.$wujie?.props;
+           // 根据个人项目改造
+           const token = props?.token;
+           const tenant = props?.tenant as Tenant;
+           const userInfo = props?.userInfo;
+
+           await userStore.setToken(token);
+           await userStore.setUserInfo(userInfo);
+           await userStore.setTenant(tenant);
+        }
+        ...
+     }
+  }
+  ```
+
+- 设置项目标题
+
+## 遇到问题
+
+- ant-design-vue 弹窗位置、表格下拉框位置
+  [参考](https://github.com/Tencent/wujie/issues/499)
+
+  1.  主应用插件中，添加 css-before-loaders 预处理
+
+  ```js
+  { cssBeforeLoaders: [{ content: 'html{padding-top: 60px;height: 100%}' }] },
+  ```
+
+  2.  在子应用显示区域做负边距抵消
+
+  ```css
+  #module-content {
+    width: 100%;
+    height: 100vh;
+    margin-top: -60px;
+  }
+  ```
+
+  左右布局同理
+
+- 子应用刷新页面（location 是子应用）
+
+  - 使用 window.parent.reload
+  - 使用 eventbus 通知主应用
