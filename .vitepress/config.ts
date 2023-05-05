@@ -18,6 +18,7 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
       { text: "技术选型", link: "/engine/technology" },
       { text: "统一规范", link: "/engine/standard" },
       { text: "微前端", link: "/engine/framework/micro-app" },
+      { text: "Monorepo", link: "/engine/framework/monorepo" },
     ],
     collapsed: false,
   },
