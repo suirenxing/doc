@@ -43,6 +43,14 @@ const sidebarShare = (): DefaultTheme.SidebarItem[] => [
     ],
     collapsed: false,
   },
+  {
+    text: "框架",
+    items: [
+      { text: "vue", link: "/share/library/vue" },
+      { text: "react", link: "/share/library/react" },
+    ],
+    collapsed: false,
+  },
 ];
 
 // https://vitepress.dev/reference/site-config
