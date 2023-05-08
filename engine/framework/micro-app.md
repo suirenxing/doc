@@ -195,3 +195,13 @@ Single-spa 是一个将多个单页面应用聚合为一个整体应用的 JavaS
 
   - 使用 window.parent.reload
   - 使用 eventbus 通知主应用
+
+- 打开新 tab 跳转指定路由
+
+  1.  主项目打开子项目
+
+  子项目路由 path 作为参数传递，额外参数作为 props，在启动子项目时传递
+
+  2.  子项目打开其他子项目
+
+      使用 wujie 的 bus 进行同行，主项目监听 tab 事件并接收参数，拼接路由，设置参数为 props
