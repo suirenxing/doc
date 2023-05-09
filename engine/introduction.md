@@ -6,7 +6,7 @@
 
 现在前端开发覆盖的东西非常广泛，从开发、规范、测试、lint、构建、部署、监控、集成、微服务等等链路都隶属于前端工程化.
 
-> 总结一下就是: 在企业级的前端项目开发中, 把前端开发用到的技术、工具、流程、经验等进行规范化、标准化，实现前端的 4 个现代化：[模块化](./modernize/module.md)、[组件化](./modernize/component.md)、[规范化](./standard.md)、[自动化](./modernize/auto.md)。
+> 总结一下就是: 在企业级的前端项目开发中, 把前端开发用到的技术、工具、流程、经验等进行规范化、标准化，实现前端的 4 个现代化：[模块化](./modernize/module.md)、[组件化](./modernize/component.md)、[规范化](./modernize/norm)、[自动化](./modernize/auto.md)。
 
 ![目的](/guide_purpose.png)
 

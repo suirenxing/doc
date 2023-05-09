@@ -5,9 +5,9 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
     text: "Introduction",
     items: [
       { text: "简介", link: "/engine/introduction" },
+      { text: "规范化", link: "/engine/modernize/norm" },
       { text: "模块化", link: "/engine/modernize/module" },
       { text: "组件化", link: "/engine/modernize/component" },
-      { text: "规范化", link: "/engine/modernize/norm" },
       { text: "自动化", link: "/engine/modernize/auto" },
     ],
     collapsed: false,
@@ -16,7 +16,14 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
     text: "Features",
     items: [
       { text: "技术选型", link: "/engine/technology" },
-      { text: "统一规范", link: "/engine/standard" },
+      {
+        text: "统一规范",
+        items: [
+          { text: "代码规范", link: "/engine/standard/code" },
+          { text: "GIT规范", link: "/engine/standard/gitflow" },
+        ],
+        collapsed: false,
+      },
       { text: "前端文档", link: "/engine/docs" },
       { text: "模板项目", link: "/engine/template" },
       { text: "组件库", link: "/engine/components" },

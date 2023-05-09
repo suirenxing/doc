@@ -15,3 +15,17 @@
 ## 内容
 
 ![文档](/document.jpg)
+
+## 推荐
+
+1. 项目文档
+
+   直接创建项目 readme.md，在项目内编写，gitlab、github 能直接解析
+
+2. 技术文档
+
+   [vitepress](https://vitepress.dev/)
+
+3. 组件文档
+
+   [storybook](https://storybook.js.org/)
