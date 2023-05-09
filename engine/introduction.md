@@ -39,19 +39,19 @@
 
 ## how（怎么做）
 
-1. [技术选型]
-2. [统一规范]
-3. [前端文档]
-4. [模板项目]
-5. [组件库]
-6. [工具库]
-7. [自动化工具]
-8. [自动化部署（CI/CD）]
-9. [监控埋点]
-10. [性能优化]
-11. [SSR]
-12. [微前端]
-13. [Monorepo]
-14. 其他
+1. [技术选型](./technology)
+2. [统一规范](./standard)
+3. [前端文档](./docs)
+4. [模板项目](./template)
+5. [组件库](./components)
+6. [工具库](./tools)
+7. [自动化工具](./autoTools)
+8. [自动化部署（CI/CD）](./devops)
+9. [监控埋点](./monitor)
+10. [性能优化](./performance)
+11. [SSR](./ssr)
+12. [微前端](./framework/micro-app)
+13. [Monorepo](./framework/monorepo)
+14. [其他](./other)
 
 [参考]
