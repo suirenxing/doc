@@ -4,7 +4,7 @@
 
 ![基本流程](/gitflow.png)
 
-## 分支
+## 分支规范
 
 **1. master 分支**
 
@@ -34,3 +34,38 @@
 **5. uat 预生产分支**
 
 预览分支, 经过部门审核通过后, 合并到 master 分支上线发布.
+
+## commit 规范
+
+**格式**
+
+`<type>(<scope>): <subject>`
+
+**type(必须)**
+
+用于说明 git commit 的类别，只允许以下的标识。
+
+- feat：新功能（feature）
+- fix： 修复 bug
+- docs：文档
+- style：格式（不影响代码运行的变动）
+- refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）
+- perf：优化相关，比如提升性能、体验
+- test：增加测试
+- chore：构建过程或辅助工具的变动
+- revert：回滚到上一个版本
+- merge：代码合并
+- sync：同步主线或分支的 Bug
+
+**scope(可选)**
+
+scope 用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同
+
+**subject(必须)**
+
+subject 是 commit 目的的简短描述，结尾不需要加符号
+
+**意义**
+
+- 便于程序员对提交历史进行追溯，了解发生了什么情况
+- 格式化的 commit message 才可以用于自动化输出 Change log
