@@ -21,6 +21,7 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
         items: [
           { text: "代码规范", link: "/engine/standard/code" },
           { text: "GIT规范", link: "/engine/standard/gitflow" },
+          { text: "Vue项目", link: "/engine/standard/vue-project" },
         ],
         collapsed: false,
       },

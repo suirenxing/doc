@@ -1,4 +1,4 @@
-# 代码规范
+# 代码规范工具
 
 ## 格式化配置 [prettier](https://prettier.io/playground/)
 
