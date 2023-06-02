@@ -71,6 +71,21 @@ const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   },
 ];
 
+const sidebarBackend = (): DefaultTheme.SidebarItem[] => [
+  {
+    text: "sql",
+    link: "/backend/sql",
+  },
+  {
+    text: "nestjs",
+    items: [
+      { text: "第一天", link: "/backend/nestjs/first" },
+      { text: "second", link: "/backend/nestjs/second" },
+    ],
+    collapsed: false,
+  },
+];
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "学习文档",
@@ -81,11 +96,13 @@ export default defineConfig({
     nav: [
       { text: "工程化", link: "/engine/introduction" },
       { text: "分享", link: "/share/browser/memory" },
+      { text: "nestjs", link: "/backend/nestjs/first" },
     ],
 
     sidebar: {
       "/engine/": sidebarEngine(),
       "/share/": sidebarShare(),
+      "/backend/": sidebarBackend(),
     },
 
     socialLinks: [

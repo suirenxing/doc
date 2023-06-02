@@ -35,7 +35,7 @@
 
 预览分支, 经过部门审核通过后, 合并到 master 分支上线发布.
 
-## commit 规范
+## [commit 规范](./code#提交规范-commitlint)
 
 **格式**
 
