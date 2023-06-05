@@ -69,6 +69,10 @@ const sidebarShare = (): DefaultTheme.SidebarItem[] => [
     ],
     collapsed: false,
   },
+  {
+    text: "Typescript",
+    link: "/share/typescript.md",
+  },
 ];
 
 const sidebarBackend = (): DefaultTheme.SidebarItem[] => [
