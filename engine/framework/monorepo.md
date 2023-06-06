@@ -86,6 +86,10 @@ packages:
 - 安装到根目录或者全局依赖：执行`pnpm add package -w -S/D`
 - 子项目项目引用：执行`pnpm add sourcePackage -F targetPackage`
 
+:::
+如果找不到本地包，添加 --workspace
+:::
+
 4. 需要全局统一配置使用的依赖项，但是在子项目中引用，需把安装提升到根目录，如 eslint
 
 - 新建.npmrc [参考](https://pnpm.io/zh/npmrc)
