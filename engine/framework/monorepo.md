@@ -69,3 +69,76 @@ Monorepo 是一种项目代码管理方式，指单个仓库中管理多个项�
 ## when
 
 ## how
+
+1. 新建 `pnpm-workspace.yaml`
+
+```yaml
+packages:
+  - packages/* # ui库、工具库等相关库
+  - docs # 组件库文档
+  - apps/* # 应用
+```
+
+2. cd 到子项目目录，执行`pnpm init`, 修改 package.json 中的名称
+
+3. 项目安装
+
+- 安装到根目录或者全局依赖：执行`pnpm add package -w -S/D`
+- 子项目项目引用：执行`pnpm add sourcePackage -F targetPackage`
+
+4. 需要全局统一配置使用的依赖项，但是在子项目中引用，需把安装提升到根目录，如 eslint
+
+- 新建.npmrc [参考](https://pnpm.io/zh/npmrc)
+- 添加需要提升的依赖项
+
+```shell
+link-workspace-packages=false
+# public-hoist-pattern[]=*
+public-hoist-pattern[]=husky
+public-hoist-pattern[]=*lint*
+public-hoist-pattern[]=*eslint*
+public-hoist-pattern[]=*prettier*
+public-hoist-pattern[]=*vite-plugin-mock*
+public-hoist-pattern[]=vite
+public-hoist-pattern[]=*stylelint*
+public-hoist-pattern[]=@commitlint/cli
+strict-peer-dependencies=false
+auto-install-peers=true
+dedupe-peer-dependents=true
+```
+
+## 基础 ts 配置
+
+1. 新建 configs 目录，添加到 pnpm-workspace.yaml 文件
+
+新建 tsconfig 目录，执行`pnpm init`，新建 base.json
+
+```json [base.json]
+{
+  // 指定json文件模式的URL，用于验证和补全配置项
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowJs": true, // 是否允许编译js
+    "target": "ES2020", // 目标 ECMAScript 版本
+    "module": "ESNext", // 模块系统
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src", "types", "vite.config.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+```
