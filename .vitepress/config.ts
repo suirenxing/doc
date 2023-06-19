@@ -112,5 +112,10 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
+
+    footer: {
+      message:
+        "备案号：<a href='https://beian.miit.gov.cn/'>豫ICP备2023010027号</a>",
+    },
   },
 });
