@@ -115,7 +115,7 @@ export default defineConfig({
 
     footer: {
       message:
-        "备案号：<a href='https://beian.miit.gov.cn/'>豫ICP备2023010027号</a>",
+        "备案号：<a href='https://beian.miit.gov.cn/' target='_blank'>豫ICP备2023010027号</a>",
     },
   },
 });
