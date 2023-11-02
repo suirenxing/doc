@@ -73,6 +73,13 @@ const sidebarShare = (): DefaultTheme.SidebarItem[] => [
     text: "Typescript",
     link: "/share/typescript.md",
   },
+  {
+    text: "webpack",
+    items: [
+      { text: "简介", link: "/share/webpack/webpack" },
+      { text: "打包实现", link: "/share/webpack/bundle" },
+    ],
+  },
 ];
 
 const sidebarBackend = (): DefaultTheme.SidebarItem[] => [
