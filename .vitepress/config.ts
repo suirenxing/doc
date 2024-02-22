@@ -44,12 +44,18 @@ const sidebarEngine = (): DefaultTheme.SidebarItem[] => [
 const sidebarShare = (): DefaultTheme.SidebarItem[] => [
   {
     text: "浏览器",
-    items: [{ text: "内存", link: "/share/browser/memory" }],
+    items: [
+      { text: "内存", link: "/share/browser/memory" },
+      { text: "缓存", link: "/share/browser/cache" },
+    ],
     collapsed: false,
   },
   {
-    text: "http",
-    items: [{ text: "简介", link: "/share/browser/memory" }],
+    text: "TCP",
+    items: [
+      { text: "TCP", link: "/share/tcp/index" },
+      { text: "http", link: "/share/tcp/http" },
+    ],
     collapsed: false,
   },
   {
