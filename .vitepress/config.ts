@@ -103,6 +103,27 @@ const sidebarBackend = (): DefaultTheme.SidebarItem[] => [
   },
 ];
 
+const sidebarInterview = (): DefaultTheme.SidebarItem[] => [
+  {
+    text: "基础",
+    items: [
+      {
+        text: "html",
+        link: "/interview/base/html",
+      },
+      {
+        text: "css",
+        link: "/interview/base/css",
+      },
+      {
+        text: "js",
+        link: "/interview/base/js",
+      },
+    ],
+    collapsed: false,
+  },
+];
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "学习文档",
@@ -114,12 +135,14 @@ export default defineConfig({
       { text: "工程化", link: "/engine/introduction" },
       { text: "分享", link: "/share/browser/memory" },
       { text: "nestjs", link: "/backend/nestjs/first" },
+      { text: "面试", link: "/interview/base/html" },
     ],
 
     sidebar: {
       "/engine/": sidebarEngine(),
       "/share/": sidebarShare(),
       "/backend/": sidebarBackend(),
+      "/interview/": sidebarInterview(),
     },
 
     socialLinks: [
