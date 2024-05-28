@@ -68,4 +68,4 @@ jobs:
           PORT: 22
           USER: ubuntu
           PRIVATE_SSH_KEY: ${{ secrets.SERVER_KEY }}
-          COMMAND: cd /root && ./run.sh
+          COMMAND: cd /home/ubuntu && ./run.sh
