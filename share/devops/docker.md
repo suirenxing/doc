@@ -100,3 +100,5 @@ docker start|stop|restart <containerId>
    ```
    - 修改文件
      `vim etc/nginx/nginx.conf`
+
+## 部署 [参考](https://juejin.cn/post/7245613765693702201)
