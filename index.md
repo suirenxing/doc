@@ -13,6 +13,12 @@ hero:
     - theme: alt
       text: 分享
       link: /share/index
+    - theme: alt
+      text: 控制台
+      link: https://xuwb.vip/system
+    - theme: alt
+      text: admin
+      link: http://xuwb.vip/admin
 
 features:
   - title: JavaScript
