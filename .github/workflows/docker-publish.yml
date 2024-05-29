@@ -41,9 +41,9 @@ jobs:
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: xuwb/doc
 
       - name: Build and push Docker image
         id: build-and-push
@@ -61,11 +61,11 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-      - name: SSH Command
-        uses: D3rHase/ssh-command-action@v0.2.1
-        with:
-          HOST: ${{ secrets.SERVER_IP }}
-          PORT: 22
-          USER: ubuntu
-          PRIVATE_SSH_KEY: ${{ secrets.SERVER_KEY }}
-          COMMAND: cd /home/ubuntu && ./run.sh
+      # - name: SSH Command
+      #   uses: D3rHase/ssh-command-action@v0.2.1
+      #   with:
+      #     HOST: ${{ secrets.SERVER_IP }}
+      #     PORT: 22
+      #     USER: ubuntu
+      #     PRIVATE_SSH_KEY: ${{ secrets.SERVER_KEY }}
+      #     COMMAND: cd /home/ubuntu && ./run.sh
